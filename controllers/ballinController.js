@@ -1,12 +1,16 @@
 let express = require('express');
-
 let router = express.Router();
 let teams = require('../models/teams');
 
+// ROUTES
+// Home route
 router.get('/', function(req, res) {
-  console.log('CONTROLLER GET FIRED!');
+  res.render('home');
+});
+// Teams route
+router.get('/teams', function(req, res) {
   teams.findAll(function(teamsData) {
-    res.render('home', { team_data: teamsData });
+    res.render('teams', { team_data: teamsData });
   });
 });
 
