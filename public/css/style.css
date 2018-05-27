@@ -1,0 +1,23 @@
+/*-----------------------
+   Home Page Jumbotron
+-----------------------*/
+.img-wrapper {
+  position: relative;
+  width: 100%;
+}
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.img-overlay:before {
+  content: ' ';
+  display: block;
+  height: 33%;
+}
+.basketballPic {
+  width: 100%;
+}
