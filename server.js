@@ -19,7 +19,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // ROUTES
-let routes = require('./controllers/ballinController');
+let routes = require('./controllers/teamController');
 app.use(routes);
 
 db.sequelize.sync({ force: true }).then(function() {
