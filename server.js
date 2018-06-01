@@ -2,6 +2,7 @@
 let express = require('express');
 let exphbs = require('express-handlebars');
 let bodyParser = require('body-parser');
+let db = require('./models');
 
 let app = express();
 
@@ -21,6 +22,8 @@ app.set('view engine', 'handlebars');
 let routes = require('./controllers/ballinController');
 app.use(routes);
 
-app.listen(PORT, function() {
-  console.log('Listing on Port: ' + PORT);
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log('Listing on Port: ' + PORT);
+  });
 });

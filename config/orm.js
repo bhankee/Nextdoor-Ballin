@@ -36,6 +36,22 @@ let orm = {
       }
       cb(result);
     });
+  },
+  createPlayer: function(table, cols, vals, cb) {
+    var queryToSearch = 'INSERT INTO ' + table;
+    queryToSearch += ' (';
+    queryToSearch += cols.toString();
+    queryToSearch += ') ';
+    queryToSearch += 'VALUES (';
+    queryToSearch += questionMarks(vals.length);
+    queryToSearch += ') ';
+
+    connection.query(queryToSearch, vals, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
   }
 };
 
