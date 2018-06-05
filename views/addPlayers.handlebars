@@ -1,4 +1,11 @@
-<form action="/players/create" method="POST">
+<div>
+    {{#each team}}
+    <p>{{this.team_name}}</p>
+</div>
+
+<form action="/team/update/{{this.id}}" method="POST">
+    {{/each}}
+
     <div class="form-group">
         <label for="player_first_name">Player First Name:</label>
         <input type="text" class="form-control" name="player_first_name">

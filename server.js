@@ -18,10 +18,12 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // ROUTES
-let routes = require('./controllers/teamController');
-app.use(routes);
+//let routes = require('./controllers/teamController');
+//app.use(routes);
+require('./routes/viewRoutes')(app);
+require('./routes/apiRoutes')(app);
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log('Listing on Port: ' + PORT);
   });
