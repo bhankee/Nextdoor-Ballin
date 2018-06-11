@@ -22,9 +22,18 @@ module.exports = function(app) {
     db.Team.findAll({
       where: {
         id: req.params.id
-      }
+      },
+      include: [db.Player]
     }).then(function(dbTeam) {
-      res.render('myTeam', { myTeam: dbTeam });
+      console.log('PASSED INTO TEAM PAGE: ' + JSON.stringify(dbTeam));
+
+      db.Player.findAll({
+        where: {
+          id: req.params.id
+        }
+      }).then(function(dbPlayers) {
+        res.render('myTeam', { myTeam: dbTeam, myPlayers: dbPlayers });
+      });
     });
   });
 };

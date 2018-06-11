@@ -21,3 +21,16 @@
 .basketballPic {
   width: 100%;
 }
+/* ----------------------
+          NavBar
+-----------------------*/
+
+/* ----------------------
+    MyTeam Info Page
+-----------------------*/
+.teamInfo {
+  background-color: #1aa8ce;
+  text-align: center;
+  border-radius: 20px;
+  color: white;
+}
