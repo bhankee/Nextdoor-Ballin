@@ -1,33 +1,19 @@
 <div class="container">
     <div class="row justify-content-center" ">
         <div class="col-4 teamInfo ">
-            {{#each myTeam}}
-            <h1>{{this.team_name}}</h1>
-            <h1>{{this.team_sport}}</h1>
-            <h1>Wins: {{this.wins}}</h1>
-            <h1>Losses{{this.losses}}</h1>
-            
-           
-
-            {{/each}}
-
+            <h1>{{myTeam.team_name}}</h1>
+            <h1>{{myTeam.team_sport}}</h1>
+            <h1>Wins: {{myTeam.wins}}</h1>
+            <h1>Losses{{myTeam.losses}}</h1>
         </div>
-           <div class="col-10 teamInfo ">
+        <div class="col-10 teamInfo ">
             {{#each myPlayers}}
-            <h1>{{this.first_name}}</h1>
-           
-
+                <h1>{{this.first_name}}</h1>
             {{/each}}
-            {{#each myTeam}}
-             <form action=" /teams/{{this.id}} " method="GET ">
-        <button type="submit ">Add Player</button>
-        </form>
-        {{/each}}
 
-
+            <a href="/teams/{{myTeam.id}} "> 
+                <button type="submit ">Add Player</button>
+            </a>
+        </div>
     </div>
-
-</div>
-
-
 </div>

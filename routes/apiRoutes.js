@@ -31,13 +31,24 @@ module.exports = function(app) {
       const teamObject = {
         team: dbTeam
       };
-
       res.render('addPlayers', teamObject);
     });
   });
 
   // PLAYERS
   app.post('/team/update/:id', function(req, res) {
+    console.log(req.body);
+    db.Player.create({
+      first_name: req.body.player_first_name,
+      last_name: req.body.player_last_name,
+      TeamId: req.params.id
+    }).then(function(players) {
+      res.redirect('/my-team/' + req.params.id);
+    });
+  });
+  // UPDATE PLAYERS
+  app.post('/team/update/:id', function(req, res) {
+    console.log('BELOW IS UPDATE REQ BODY!!!!');
     console.log(req.body);
     db.Player.create({
       first_name: req.body.player_first_name,
