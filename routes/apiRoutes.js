@@ -47,16 +47,4 @@ module.exports = function(app) {
       res.redirect('/my-team/' + players.id);
     });
   });
-  // UPDATE PLAYERS
-  app.post('/team/update/:id', function(req, res) {
-    console.log('BELOW IS UPDATE REQ BODY!!!!');
-    console.log(req.body);
-    db.Player.create({
-      first_name: req.body.player_first_name,
-      last_name: req.body.player_last_name,
-      TeamId: req.params.id
-    }).then(function(players) {
-      res.redirect('/my-team/' + players.id);
-    });
-  });
 };

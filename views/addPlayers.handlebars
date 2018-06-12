@@ -1,10 +1,12 @@
 <div>
     {{#each team}}
     <p>{{this.team_name}}</p>
+    <p>{{this.id}}</p>
 </div>
 
 <form action="/team/update/{{this.id}}" method="POST">
     {{/each}}
+
 
     <div class="form-group">
         <label for="player_first_name">Player First Name:</label>
