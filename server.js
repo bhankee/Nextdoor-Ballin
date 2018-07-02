@@ -2,6 +2,7 @@ let express = require('express');
 let exphbs = require('express-handlebars');
 let bodyParser = require('body-parser');
 let db = require('./models');
+const passportSetup = require('./services/passportSetup');
 
 let app = express();
 
@@ -22,6 +23,7 @@ app.set('view engine', 'handlebars');
 //app.use(routes);
 require('./routes/viewRoutes')(app);
 require('./routes/apiRoutes')(app);
+require('./routes/authRoutes')(app);
 
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
