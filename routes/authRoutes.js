@@ -23,7 +23,7 @@ module.exports = function(app) {
     '/auth/google/redirect',
     passport.authenticate('google', { failureRedirect: '/auth/login' }),
     function(req, res) {
-      res.send('you reached the call');
+      res.send('req.user');
     }
   );
 };

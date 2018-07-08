@@ -2,7 +2,7 @@ let express = require('express');
 let exphbs = require('express-handlebars');
 let bodyParser = require('body-parser');
 let db = require('./models');
-const passportSetup = require('./services/passportSetup');
+let passport = require('./services/passportSetup');
 
 let app = express();
 
@@ -15,6 +15,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse json
 app.use(bodyParser.json());
+app.use(passport.initialize());
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
