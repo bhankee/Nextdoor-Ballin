@@ -1,8 +1,10 @@
 let express = require('express');
 let exphbs = require('express-handlebars');
+const cookieSession = require('cookie-session');
 let bodyParser = require('body-parser');
 let db = require('./models');
 let passport = require('./services/passportSetup');
+const keys = require('./config/keys');
 
 let app = express();
 
@@ -15,7 +17,15 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse json
 app.use(bodyParser.json());
+
+app.use(
+  cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [keys.session.cookieKey]
+  })
+);
 app.use(passport.initialize());
+app.use(passport.session());
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 

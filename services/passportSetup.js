@@ -3,21 +3,6 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const keys = require('../config/keys');
 const db = require('../models');
 
-//Sends user id to a cookie
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
-  User.findOne({
-    where: {
-      google_id: id
-    }
-  }).then(function(user) {
-    done(null, user);
-  });
-});
-
 passport.use(
   new GoogleStrategy(
     {
@@ -53,4 +38,21 @@ passport.use(
     }
   )
 );
+
+//Sends user id to a cookie
+passport.serializeUser(function(user, done) {
+  console.log('SERIALIZE USER: ', user.id);
+  return done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  db.User.findOne({
+    where: {
+      id: id
+    }
+  }).then(function(user) {
+    console.log('return from DESERIALIZE: ', user);
+    return done(null, user);
+  });
+});
 module.exports = passport;

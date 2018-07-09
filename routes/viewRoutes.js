@@ -44,4 +44,10 @@ module.exports = function(app) {
       });
     });
   });
+
+  // Proile route when user is logged in
+  app.get('/profile', function(req, res) {
+    console.log('req bodyyyyy: ', req.user.user_name);
+    res.json(req.user.user_name);
+  });
 };
