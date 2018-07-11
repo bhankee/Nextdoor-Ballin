@@ -16,8 +16,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Team.associate = function(models) {
-    // Delete players associates with team when team is deleted.
     Team.hasMany(models.Player);
+    Team.belongsTo(models.User);
   };
 
   return Team;

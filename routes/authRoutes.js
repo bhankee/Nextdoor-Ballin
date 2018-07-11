@@ -24,7 +24,7 @@ module.exports = function(app) {
     passport.authenticate('google', { failureRedirect: '/auth/login' }),
     function(req, res) {
       console.log('ON REDIRECT URL: ', req.user.user_name);
-      res.redirect('/profile');
+      res.render('addTeam');
     }
   );
 };

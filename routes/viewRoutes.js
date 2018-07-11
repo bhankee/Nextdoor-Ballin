@@ -1,12 +1,20 @@
 const db = require('../models');
+
+const authCheck = (req, res, next) => {
+  if (!req.user) {
+    // if not logged in
+    res.redirect('/auth/login');
+  } else {
+    // if logged in
+    next();
+  }
+};
+
 module.exports = function(app) {
   app.get('/', function(req, res) {
     res.render('home');
   });
 
-  app.get('/team/add', function(req, res) {
-    res.render('addTeam');
-  });
   app.get('/login', function(req, res) {
     res.render('login');
   });
@@ -46,8 +54,9 @@ module.exports = function(app) {
   });
 
   // Proile route when user is logged in
-  app.get('/profile', function(req, res) {
-    console.log('req bodyyyyy: ', req.user.user_name);
-    res.json(req.user.user_name);
+  app.get('/profile', authCheck, function(req, res) {
+    console.log('req body: ', req.user.user_name);
+    res.render('profile');
   });
 };
+// Figure out how to add team linked to this profile and ...

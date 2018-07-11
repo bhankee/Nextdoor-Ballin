@@ -10,5 +10,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  User.associate = function(models) {
+    // Delete players associates with team when team is deleted.
+    User.hasOne(models.Team);
+  };
+
   return User;
 };
