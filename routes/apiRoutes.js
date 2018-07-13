@@ -12,9 +12,11 @@ module.exports = function(app) {
 
   // Add team
   app.post('/team/create', function(req, res) {
+    console.log('REQ BODY USER IN TEAM/CREATE: ', db.User.user_name);
     db.Team.create({
       team_name: req.body.team_name,
       team_sport: req.body.team_sport,
+      captain: 'b-rad',
       wins: 0,
       losses: 0
     }).then(function(data) {
@@ -48,8 +50,6 @@ module.exports = function(app) {
   });
   // UPDATE PLAYERS
   app.post('/team/update/:id', function(req, res) {
-    console.log('BELOW IS UPDATE REQ BODY!!!!');
-    console.log(req.body);
     db.Player.create({
       first_name: req.body.player_first_name,
       last_name: req.body.player_last_name,

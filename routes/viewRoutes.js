@@ -53,7 +53,8 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/team/add', function(req, res) {
+  app.get('/team/add/:userName', function(req, res) {
+    console.log('PARAMS USERNAME: ', req.params.userName);
     res.render('addTeam');
   });
 

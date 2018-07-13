@@ -10,6 +10,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       len: [1]
     },
+    captain: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
 
     wins: DataTypes.INTEGER,
     losses: DataTypes.INTEGER
