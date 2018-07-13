@@ -53,10 +53,17 @@ module.exports = function(app) {
     });
   });
 
-  // Proile route when user is logged in
+  app.get('/team/add', function(req, res) {
+    res.render('addTeam');
+  });
+
+  // Profile route when user is logged in
   app.get('/profile', authCheck, function(req, res) {
     console.log('req body: ', req.user.user_name);
-    res.render('profile');
+    res.render('profile', {
+      user: req.user
+    });
   });
 };
+
 // Figure out how to add team linked to this profile and ...
