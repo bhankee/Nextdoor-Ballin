@@ -1,7 +1,7 @@
 <div>
     {{#each team}}
-    <p>{{this.team_name}}</p>
-    <p>{{this.id}}</p>
+    <h1>{{this.team_name}}</h1>
+    <h3>Captain: {{this.captain}}</h3>
 </div>
 
 <form action="/team/update/{{this.id}}" method="POST">

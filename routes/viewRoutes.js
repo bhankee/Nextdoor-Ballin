@@ -55,7 +55,7 @@ module.exports = function(app) {
 
   app.get('/team/add/:userName', function(req, res) {
     console.log('PARAMS USERNAME: ', req.params.userName);
-    res.render('addTeam');
+    res.render('addTeam',{captain: req.params.userName});
   });
 
   // Profile route when user is logged in

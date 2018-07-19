@@ -1,6 +1,6 @@
-<form action="/team/create" method="POST">
+<form action="/team/create/{{captain}}" method="POST">
     <div class="form-group">
-        <label for="sportSelect">Select Sport:</label>
+        <label for="sportSelect">{{captain}}'s Team</label>
         <select class="form-control" name="team_sport" id="sportSelect">
             <option>Basketball</option>
             <option>Football</option>

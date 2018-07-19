@@ -11,12 +11,14 @@ module.exports = function(app) {
   });
 
   // Add team
-  app.post('/team/create', function(req, res) {
-    console.log('REQ BODY USER IN TEAM/CREATE: ', db.User.user_name);
+  app.post('/team/create/:captain', function(req, res) {
+    let captain = req.params.captain;
+    console.log('CAPTAIN CREATING IN API: ', captain);
+
     db.Team.create({
       team_name: req.body.team_name,
       team_sport: req.body.team_sport,
-      captain: 'b-rad',
+      captain: captain,
       wins: 0,
       losses: 0
     }).then(function(data) {
