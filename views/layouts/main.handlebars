@@ -5,6 +5,9 @@
     <title>Neighborhood Ballers</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <!-- font awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+        crossorigin="anonymous">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- Optional theme -->
@@ -13,7 +16,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primaryGreen">
         <a class="navbar-brand" href="#">Ballin Neighbors</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -31,16 +34,17 @@
                 </li>
                 {{#unless user}}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign Up</a>
+                    <a class="nav-link" href="/auth/login">Sign Up</a>
                 </li>
                 {{/unless}} {{#if user}}
                 <li class="nav-item">
                     <a class="nav-link " href="/team/add/{{user.user_name}}" +>Add Team</a>
                 </li>
-                {{/if}}
+
                 <li class="nav-item">
                     <a class="nav-link " href="/auth/logout">Log Out</a>
                 </li>
+                {{/if}}
 
             </ul>
         </div>

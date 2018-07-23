@@ -1,6 +1,12 @@
 /*-----------------------
    Home Page Jumbotron
 -----------------------*/
+/* navbar */
+.bg-primaryGreen,
+.btn-primaryGreen {
+  background-color: #5dd39e;
+  border-color: #e7e7e7;
+}
 
 .img-wrapper {
   position: relative;
@@ -45,8 +51,22 @@
 /* ----------------------
     Login 
 -----------------------*/
-.google-btn {
+.loginPage {
+  padding: 15px;
+}
+
+.btn-googleLogin,
+.btn-group {
   background-color: #1aa8ce;
   color: white;
-  padding: 10px;
+}
+.fa-google-plus-g {
+  color: white;
+}
+
+/* ----------------------
+    Profile Page
+-----------------------*/
+.welcomePlayer {
+  color: #5dd39e;
 }

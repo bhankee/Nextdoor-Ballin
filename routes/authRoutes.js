@@ -8,7 +8,8 @@ module.exports = function(app) {
   });
   // LOGOUT
   app.get('/auth/logout', function(req, res) {
-    res.send('logging out');
+    req.logout();
+    res.redirect('/');
   });
   // AUTH GOOGLE
   app.get(

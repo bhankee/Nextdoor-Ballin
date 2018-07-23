@@ -1,14 +1,20 @@
-<h1>Login Page</h1>
-<form action="/login" method="POST">
+<!-- <form action="/login" method="POST">
     <div class="form-group">
         <label for="user_email">Email:</label>
         <input type="email" class="form-control" name="user_email">
         <label for="user_password">Password:</label>
         <input type="text" class="form-control" name="user_password">
+    </div>-->
+<div class="container loginPage">
+    <div class="row justify-content-center">
+        <div class="col-md-auto">
+            <div class="btn-group">
+                <a class='btn btn-googleLogin disabled'>
+                    <i class="fab fa-google-plus-g"></i>
+                </a>
+                <a class='btn btn-googleLogin' href="/auth/google" style="width:12em;"> Sign in with Google</a>
+            </div>
+        </div>
     </div>
-    <div>
-        <a class="google-btn" href="/auth/google"> Google+</a>
-    </div>>
 
-
-    <button type="submit">Login</button>
+</div>
