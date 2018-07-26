@@ -1,7 +1,18 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <h1 class="welcomePlayer">Welcome {{ user.user_name}}</h1>
-        </div>
+    <div class="col">
+        <h1 class="welcomePlayer">Welcome {{ user.user_name}}</h1>
     </div>
+    <div class="row justify-content-md-center">
+        <div class="col-auto">
+            <div class="card" style="width: 18rem;">
+                <i class="fas fa-user-alt card-img-top"></i>
+                <div class="card-body">
+                    <a href="/team/add/{{user.user_name}}" class=" btn btn-orange ">Create Team</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 </div>

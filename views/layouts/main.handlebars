@@ -13,11 +13,13 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
 
+
+
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primaryGreen">
-        <a class="navbar-brand" href="#">Ballin Neighbors</a>
+        <a class="navbar-brand" href="/">Ballin Neighbors</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,13 +46,31 @@
                 <li class="nav-item">
                     <a class="nav-link " href="/auth/logout">Log Out</a>
                 </li>
+                {{/if}} {{#if captain}}
+                <li class="nav-item">
+                    <a class="nav-link " href="/team/add/{{user.user_name}}" +>Add Team</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link " href="/auth/logout">Log Out</a>
+                </li>
+                {{/if}}{{#if myTeam}}
+                <li class="nav-item">
+                    <a class="nav-link " href="/team/add/{{user.user_name}}" +>Add Team</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link " href="/auth/logout">Log Out</a>
+                </li>
                 {{/if}}
 
             </ul>
         </div>
     </nav>
     {{{ body }}} {{!-- Add jQuery --}}
+    <script src="https://use.fontawesome.com/0a83d2d08d.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/javascript/app.js"></script>
 
 </body>
 

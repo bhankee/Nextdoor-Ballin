@@ -45,6 +45,7 @@ module.exports = function(app) {
     db.Player.create({
       first_name: req.body.player_first_name,
       last_name: req.body.player_last_name,
+      nick_name: req.body.player_nick_name,
       TeamId: req.params.id
     }).then(function(players) {
       res.redirect('/my-team/' + req.params.id);
@@ -55,6 +56,7 @@ module.exports = function(app) {
     db.Player.create({
       first_name: req.body.player_first_name,
       last_name: req.body.player_last_name,
+      nick_name: req.body.player_nick_name,
       TeamId: req.params.id
     }).then(function(players) {
       res.redirect('/my-team/' + players.id);

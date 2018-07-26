@@ -7,6 +7,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     last_name: {
       type: DataTypes.STRING
+    },
+    nick_name: {
+      type: DataTypes.STRING
     }
   });
 

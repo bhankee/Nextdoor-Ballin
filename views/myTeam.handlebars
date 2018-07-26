@@ -1,18 +1,48 @@
 <div class="container">
-    <div class="row justify-content-center" ">
+    <div class="row playerRow  ">
         <div class="col-4 teamInfo ">
-            <h1>{{myTeam.team_name}}</h1>
-            <h1>{{myTeam.team_sport}}</h1>
+
+
+            <h1>Sport:{{myTeam.team_sport}}</h1>
             <h1>Wins: {{myTeam.wins}}</h1>
             <h1>Losses{{myTeam.losses}}</h1>
         </div>
-        <div class="col-10 teamInfo ">
-            {{#each myPlayers}}
-                <h1>{{this.first_name}}</h1>
-            {{/each}}
+        <div class="col-8 teamInfo ">
+            <div class="flag ">
+                <h1>{{myTeam.team_name}}</h1>
+            </div>
+        </div>
 
-            <a href="/teams/{{myTeam.id}} "> 
-                <button type="submit ">Add Player</button>
+
+    </div>
+
+    <div class="row justify-content-center playerRow ">
+
+        <div class="col-10 teamInfo ">
+            <h1>Players:</h1>
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th scope="col ">#</th>
+                        <th scope="col ">First</th>
+                        <th scope="col ">Last</th>
+                        <th scope="col ">Nickname</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each myPlayers}}
+                    <tr>
+                        <th scope="row ">{{this.id}}</th>
+                        <td>{{this.first_name}}</td>
+                        <td>{{this.last_name}}</td>
+                        <td>{{this.nick_name}}</td>
+                    </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+            <a href="/teams/{{myTeam.id}} ">
+                <button class="btn btn-orange " type="submit ">Add Player</button>
             </a>
         </div>
     </div>
