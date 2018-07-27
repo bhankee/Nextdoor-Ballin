@@ -1,4 +1,5 @@
 const db = require('../models');
+const authCheck = require('../services/authCheck');
 
 module.exports = function(app) {
   // TEAMS
@@ -26,14 +27,15 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/teams/:id', function(req, res) {
+  app.get('/teams/:id', authCheck, function(req, res) {
     db.Team.findAll({
       where: {
         id: req.params.id
       }
     }).then(function(dbTeam) {
       const teamObject = {
-        team: dbTeam
+        team: dbTeam,
+        user: req.user
       };
       res.render('addPlayers', teamObject);
     });

@@ -1,14 +1,6 @@
 const db = require('../models');
 
-const authCheck = (req, res, next) => {
-  if (!req.user) {
-    // if not logged in
-    res.redirect('/auth/login');
-  } else {
-    // if logged in
-    next();
-  }
-};
+const authCheck = require('../services/authCheck');
 
 module.exports = function(app) {
   app.get('/', function(req, res) {
@@ -28,7 +20,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/my-team/:id', function(req, res) {
+  app.get('/my-team/:id', authCheck, function(req, res) {
     db.Team.findOne({
       where: {
         id: req.params.id
@@ -47,15 +39,16 @@ module.exports = function(app) {
         console.log('Players: ', dbPlayers);
         res.render('myTeam', {
           myTeam: dbTeam,
-          myPlayers: dbPlayers
+          myPlayers: dbPlayers,
+          user: req.user
         });
       });
     });
   });
 
-  app.get('/team/add/:userName', function(req, res) {
+  app.get('/team/add/:userName', authCheck, function(req, res) {
     console.log('PARAMS USERNAME: ', req.params.userName);
-    res.render('addTeam',{captain: req.params.userName});
+    res.render('addTeam', { captain: req.params.userName, user: req.user });
   });
 
   // Profile route when user is logged in
