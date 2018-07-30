@@ -53,9 +53,20 @@ module.exports = function(app) {
 
   // Profile route when user is logged in
   app.get('/profile', authCheck, function(req, res) {
-    console.log('req body: ', req.user.user_name);
-    res.render('profile', {
-      user: req.user
+    db.Team.findOne({
+      where: {
+        captain: req.user.user_name
+      },
+      raw: true
+    }).then(function(dbTeam) {
+      console.log('Team: ', dbTeam);
+      // console.log('PASSED INTO TEAM PAGE: ' + JSON.stringify(dbTeam));
+      console.log('req body: ', req.user.user_name);
+
+      res.render('profile', {
+        user: req.user,
+        team: dbTeam
+      });
     });
   });
 };

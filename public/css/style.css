@@ -2,10 +2,15 @@
    Home Page Jumbotron
 -----------------------*/
 /* navbar */
-.bg-primaryGreen,
+
 .btn-primaryGreen {
-  background-color: #5dd39e;
+  background-color: #4ec48f;
   border-color: #e7e7e7;
+  color: white;
+  padding: 15px !important;
+}
+.navbar-brand {
+  color: #4ec48f !important;
 }
 
 .img-wrapper {
@@ -26,6 +31,10 @@
   content: ' ';
   display: block;
   height: 33%;
+}
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #4ec48f !important;
 }
 
 .basketballPic {
@@ -75,11 +84,11 @@
 /* ----------------------
     Login 
 -----------------------*/
-.loginPage {
+.login {
   padding: 15px;
   margin-top: 100px;
 }
-.loginPage h1 {
+.login h1 {
   margin-bottom: 30px;
 }
 
@@ -97,24 +106,31 @@
   margin-right: 3px;
   width: 40px;
   height: 40px;
-  color: orange;
+  color: white;
 }
 
 /* ----------------------
     Profile Page
 -----------------------*/
 .welcomePlayer {
-  color: #5dd39e;
+  color: white;
+  text-align: center;
+}
+.greenBG {
+  background-color: #4ec48f;
+  height: 100vh;
+  padding-top: 100px;
 }
 .fa-user-alt {
   font-weight: 900;
   font-size: 160px;
   text-align: center;
   padding: 20px;
-  color: white;
+  color: #ced3d1;
+  border: 5px;
 }
 .btn-orange {
-  background-color: orange;
+  background-color: #ff9c1e;
   color: white;
   text-align: center;
 }
@@ -122,5 +138,6 @@
   text-align: center;
 }
 .card {
-  background-color: #5dd39e !important;
+  background-color: white !important;
+  margin-top: 90px;
 }

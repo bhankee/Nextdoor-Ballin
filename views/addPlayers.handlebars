@@ -1,29 +1,32 @@
-<div class="row justify-content-center">
-    <div class="col-md-6">
+<div class="container-fluid greenBG">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
 
-        <div>
-            {{#each team}}
-            <h1>{{this.team_name}}</h1>
-            <h3>Captain: {{this.captain}}</h3>
-        </div>
-
-        <form action="/team/update/{{this.id}}" method="POST">
-            {{/each}}
-
-
-            <div class="form-group">
-                <label for="player_first_name">Player First Name:</label>
-                <input type="text" class="form-control" name="player_first_name">
-                <label for="player_last_name">Player Last Name:</label>
-                <input type="text" class="form-control" name="player_last_name">
-                <label for="player_nick_name">Player Nick Name:</label>
-                <input type="text" class="form-control" name="player_nick_name">
-            </div>
             <div>
-
+                {{#each team}}
+                <h1>{{this.team_name}}</h1>
+                <h3>Captain: {{this.captain}}</h3>
             </div>
 
-            <button class="btn btn-orange" type="submit">Add Player</button>
-        </form>
+            <form action="/team/update/{{this.id}}" method="POST">
+                {{/each}}
+
+
+                <div class="form-group">
+                    <label for="player_first_name">Player First Name:</label>
+                    <input type="text" class="form-control" name="player_first_name">
+                    <label for="player_last_name">Player Last Name:</label>
+                    <input type="text" class="form-control" name="player_last_name">
+                    <label for="player_nick_name">Player Nick Name:</label>
+                    <input type="text" class="form-control" name="player_nick_name">
+                </div>
+                <div>
+
+                </div>
+
+                <button class="btn btn-orange" type="submit">Add Player</button>
+            </form>
+        </div>
     </div>
+
 </div>
