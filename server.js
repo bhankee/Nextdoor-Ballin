@@ -5,6 +5,7 @@ let bodyParser = require('body-parser');
 let db = require('./models');
 let passport = require('./services/passportSetup');
 const keys = require('./config/keys');
+require('dotenv').config();
 
 let app = express();
 
