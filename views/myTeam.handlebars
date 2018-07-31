@@ -1,24 +1,31 @@
 <div class="container-fluid greenBG">
-    <div class="row playerRow  ">
-        <div class="col-4 teamInfo ">
 
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center text-primary bg-white teamScores">
+            {{#if myTeam}}
 
-            <h1>Sport:{{myTeam.team_sport}}</h1>
-            <h1>Wins: {{myTeam.wins}}</h1>
-            <h1>Losses{{myTeam.losses}}</h1>
-        </div>
-        <div class="col-8 teamInfo ">
-            <div class="flag ">
-                <h1>{{myTeam.team_name}}</h1>
+            <h1 id="teamName"> {{myTeam.team_name}}</h1>
+
+            <div id="scores">
+                <span>WINS</span>
+                <span id="wins">{{myTeam.wins}}</span>
+                <span id="losses">{{myTeam.losses}}</span>
+                <span>LOSSES</span>
             </div>
-        </div>
 
+            {{/if}}
+
+
+
+
+        </div>
 
     </div>
 
+
     <div class="row justify-content-center playerRow ">
 
-        <div class="col-10 teamInfo ">
+        <div class="col-10 bg-white teamInfo ">
             <h1>Players:</h1>
             <table class="table ">
                 <thead>
@@ -46,4 +53,8 @@
             </a>
         </div>
     </div>
+</div>
+
+
+
 </div>

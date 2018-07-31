@@ -12,7 +12,8 @@ module.exports = function(app) {
   });
 
   // Teams route
-  app.get('/teams', function(req, res) {
+  app.get('/teams/:user', function(req, res) {
+    console.log('USER IN TEAMS: ', req.params.user);
     db.Team.findAll().then(function(dbTeam) {
       res.render('teams', {
         team_data: dbTeam
@@ -60,12 +61,17 @@ module.exports = function(app) {
       raw: true
     }).then(function(dbTeam) {
       console.log('Team: ', dbTeam);
-      // console.log('PASSED INTO TEAM PAGE: ' + JSON.stringify(dbTeam));
-      console.log('req body: ', req.user.user_name);
 
-      res.render('profile', {
-        user: req.user,
-        team: dbTeam
+      db.Match.findAll({
+        where: {
+          team_two: dbTeam.team_name
+        }
+      }).then(function(matches) {
+        res.render('profile', {
+          user: req.user,
+          team: dbTeam,
+          match: matches
+        });
       });
     });
   });

@@ -64,4 +64,31 @@ module.exports = function(app) {
       res.redirect('/my-team/' + players.id);
     });
   });
+
+  // Add Match
+  // id is for team two not the team choosing.
+  app.post('/match/create/:id', authCheck, function(req, res) {
+    db.Team.findOne({
+      where: {
+        id: req.params.id
+      },
+      raw: true
+    }).then(function(teamOne) {
+      console.log('TEAM ONE: ', teamOne);
+      db.Team.findOne({
+        // change ... only owrks if user is captain!!!!
+        where: {
+          captain: req.user.user_name
+        },
+        raw: true
+      }).then(function(teamTwo) {
+        db.Match.create({
+          team_one: teamOne.team_name,
+          team_two: teamTwo.team_name
+        }).then(function(data) {
+          res.redirect('/profile');
+        });
+      });
+    });
+  });
 };

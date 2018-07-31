@@ -51,29 +51,12 @@
 
 .teamInfo {
   text-align: center;
-  border-radius: 20px;
+  border-radius: 15px;
   color: rgb(1, 114, 207);
   margin: auto 0;
+  padding: 40px;
 }
 
-.flag {
-  position: relative;
-  width: 0;
-  height: 0;
-  border-top: 180px solid transparent;
-  border-bottom: 180px solid transparent;
-  border-left: 840px solid #ff5658;
-}
-.flag h1 {
-  text-align: center;
-  top: -80px;
-  left: -800px;
-  font-size: 100px;
-  position: absolute;
-  color: rgb(9, 38, 201);
-
-  margin: 0px;
-}
 .playerRow {
   margin-top: 100px;
 }
@@ -146,7 +129,11 @@
   text-align: center;
 }
 #teamName {
-  margin-bottom: 50px;
+  margin-bottom: 80px;
+}
+.teamScores {
+  padding: 50px 50px 70px 50px;
+  border-radius: 15px;
 }
 
 .scores {
@@ -155,13 +142,28 @@
 }
 
 #wins {
-  border: 4px solid white;
+  border: 4px solid #4ec48f;
   padding: 20px;
   font-size: 35px;
+  background-color: #4ec48f;
+  color: white;
 }
 #losses {
-  border: 4px solid white;
+  border: 4px solid #4ec48f;
+
   padding: 20px;
   font-size: 35px;
   margin-left: -8px;
+}
+
+.matchRow {
+  padding: 100px;
+}
+.list-group-item-match {
+  padding: 15px;
+  background-color: #ff9c1e;
+  border-radius: 7px;
+}
+.matchCol {
+  background-color: white;
 }
