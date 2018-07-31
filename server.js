@@ -1,3 +1,4 @@
+require('dotenv').config();
 let express = require('express');
 let exphbs = require('express-handlebars');
 const cookieSession = require('cookie-session');
@@ -5,7 +6,6 @@ let bodyParser = require('body-parser');
 let db = require('./models');
 let passport = require('./services/passportSetup');
 const keys = require('./config/keys');
-require('dotenv').config();
 
 let app = express();
 
