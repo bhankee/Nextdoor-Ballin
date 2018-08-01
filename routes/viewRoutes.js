@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
   // Teams route
-  app.get('/teams/:user', function(req, res) {
+  app.get('/allTeams/:user', function(req, res) {
     console.log('USER IN TEAMS: ', req.params.user);
     db.Team.findAll().then(function(dbTeam) {
       res.render('teams', {
@@ -61,18 +61,23 @@ module.exports = function(app) {
       raw: true
     }).then(function(dbTeam) {
       console.log('Team: ', dbTeam);
-
-      db.Match.findAll({
-        where: {
-          team_two: dbTeam.team_name
-        }
-      }).then(function(matches) {
-        res.render('profile', {
-          user: req.user,
-          team: dbTeam,
-          match: matches
+      if (dbTeam) {
+        db.Match.findAll({
+          where: {
+            team_two: dbTeam.team_name
+          }
+        }).then(function(matches) {
+          res.render('profile', {
+            user: req.user,
+            team: dbTeam,
+            match: matches
+          });
         });
-      });
+      } else {
+        res.render('profile', {
+          user: req.user
+        });
+      }
     });
   });
 };
