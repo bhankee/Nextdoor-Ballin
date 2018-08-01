@@ -61,18 +61,23 @@ module.exports = function(app) {
       raw: true
     }).then(function(dbTeam) {
       console.log('Team: ', dbTeam);
-
-      db.Match.findAll({
-        where: {
-          team_two: dbTeam.team_name
-        }
-      }).then(function(matches) {
-        res.render('profile', {
-          user: req.user,
-          team: dbTeam,
-          match: matches
+      if (dbteam !== null) {
+        db.Match.findAll({
+          where: {
+            team_two: dbTeam.team_name
+          }
+        }).then(function(matches) {
+          res.render('profile', {
+            user: req.user,
+            team: dbTeam,
+            match: matches
+          });
         });
-      });
+      } else {
+        res.render('profile', {
+          user: req.user
+        });
+      }
     });
   });
 };

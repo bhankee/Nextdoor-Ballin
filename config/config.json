@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "homerbh5",
     "database": "nextdoor_ballin",
     "host": "127.0.0.1",
     "dialect": "mysql"
