@@ -61,7 +61,7 @@ module.exports = function(app) {
       raw: true
     }).then(function(dbTeam) {
       console.log('Team: ', dbTeam);
-      if (dbteam !== null) {
+      if (dbteam) {
         db.Match.findAll({
           where: {
             team_two: dbTeam.team_name
