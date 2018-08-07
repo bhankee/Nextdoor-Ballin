@@ -40,10 +40,15 @@
 .basketballPic {
   width: 100%;
 }
-
-/* ----------------------
-          NavBar
------------------------*/
+.qouteRow {
+  background-color: #4ec48f;
+  color: white;
+}
+.quote {
+  font-family: 'Merienda One', cursive;
+  font-size: 26px;
+  margin: 30px auto;
+}
 
 /* ----------------------
     MyTeam Info Page
