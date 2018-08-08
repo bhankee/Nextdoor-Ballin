@@ -81,12 +81,16 @@
 .login h1 {
   margin-bottom: 30px;
 }
+.loginForm {
+  margin: 40px auto;
+  padding: 20px;
+}
 
 .btn-googleLogin,
 .btn-group {
   background-color: #1aa8ce;
   color: white;
-  margin-left: 70px;
+  margin-left: 85px;
 }
 .fa-google-plus-g {
   color: white;
