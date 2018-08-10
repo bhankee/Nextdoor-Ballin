@@ -4,7 +4,8 @@ let exphbs = require('express-handlebars');
 const cookieSession = require('cookie-session');
 let bodyParser = require('body-parser');
 let db = require('./models');
-let passport = require('./services/passportSetup');
+let passportGoogle = require('./services/PassportGoogleSetup');
+let passportLocal = require('./services/PassportLocalSetup');
 const keys = require('./config/keys');
 
 let app = express();
@@ -25,8 +26,10 @@ app.use(
     keys: [keys.session.cookieKey]
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passportGoogle.initialize());
+app.use(passportGoogle.session());
+app.use(passportLocal.initialize());
+app.use(passportLocal.session());
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
@@ -37,7 +40,7 @@ require('./routes/viewRoutes')(app);
 require('./routes/apiRoutes')(app);
 require('./routes/authRoutes')(app);
 
-db.sequelize.sync().then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log('Listing on Port: ' + PORT);
   });

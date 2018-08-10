@@ -17,7 +17,8 @@ passport.use(
       //Check if user exists in database
       db.User.findOne({
         where: {
-          google_id: profile.id
+          // id should be google_id
+          id: profile.id
         }
       }).then(function(currentUser) {
         if (currentUser) {
@@ -46,6 +47,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
+  console.log('Deserialize User Fired!');
   db.User.findOne({
     where: {
       id: id
@@ -55,4 +57,5 @@ passport.deserializeUser(function(id, done) {
     return done(null, user);
   });
 });
+
 module.exports = passport;

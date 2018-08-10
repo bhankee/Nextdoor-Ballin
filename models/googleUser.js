@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define('User', {
+  var GoogleUser = sequelize.define('GoogleUser', {
     user_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -10,10 +10,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  User.associate = function(models) {
+  GoogleUser.associate = function(models) {
     // Delete players associates with team when team is deleted.
-    User.hasOne(models.Team);
+    GoogleUser.hasOne(models.Team);
   };
 
-  return User;
+  return GoogleUser;
 };

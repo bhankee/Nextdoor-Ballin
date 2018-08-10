@@ -2,6 +2,13 @@ const db = require('../models');
 const passport = require('passport');
 
 module.exports = function(app) {
+  /* ----------------------------
+          Google Login 
+     ---------------------------- */
+  // SIGNUP
+  app.get('/auth/signup', function(req, res) {
+    res.render('signup');
+  });
   // LOGIN
   app.get('/auth/login', function(req, res) {
     res.render('login');
@@ -25,6 +32,43 @@ module.exports = function(app) {
     passport.authenticate('google', { failureRedirect: '/auth/login' }),
     function(req, res) {
       console.log('ON REDIRECT URL: ', req.user.user_name);
+      res.redirect('/profile');
+    }
+  );
+  /* ----------------------------
+          Password Login - Local 
+     ---------------------------- */
+
+  // AUTH LOCAL
+  app.post('/auth/local/signup', function(req, res) {
+    console.log(req.body);
+    db.User.create({
+      user_name: req.body.username,
+      password: req.body.password
+    })
+      .then(function() {
+        res.redirect('/auth/login');
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
+  });
+  app.post(
+    '/login',
+    function(req, res, next) {
+      console.log(req.body);
+      console.log('================');
+      next();
+    },
+    passport.authenticate('local'),
+    function(req, res) {
+      console.log(
+        'INSIDE PASSPORT LOCAL POST _____------------------________-----------'
+      );
+      console.log('REQ: ', req.body);
+      // If this function gets called, authentication was successful.
+      // `req.user` contains the authenticated user.
       res.redirect('/profile');
     }
   );

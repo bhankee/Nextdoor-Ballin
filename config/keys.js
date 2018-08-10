@@ -6,5 +6,8 @@ module.exports = {
   },
   session: {
     cookieKey: process.env.SESSION_COOKIE
+  },
+  localDB: {
+    password: process.env.LOCAL_DB
   }
 };
