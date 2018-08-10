@@ -12,11 +12,12 @@ module.exports = function(app) {
   });
 
   // Teams route
-  app.get('/allTeams/:user', function(req, res) {
+  app.get('/allTeams/:user', authCheck, function(req, res) {
     console.log('USER IN TEAMS: ', req.params.user);
     db.Team.findAll().then(function(dbTeam) {
       res.render('teams', {
-        team_data: dbTeam
+        team_data: dbTeam,
+        user: req.user
       });
     });
   });

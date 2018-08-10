@@ -1,9 +1,13 @@
-{{#each team_data}}
-<h1>{{this.team_name}}</h1>
-<span>
-    <form action="/match/create/{{this.id}}" method="POST">
-
-        <button class="btn btn-orange" type="submit">Play Team</button>
-    </form>
-</span>
-{{/each}}
+<div class="card-columns">
+    {{#each team_data}}
+    <div class="card ">
+        <img class="card-img-top" src="..." alt="No Team Logo">
+        <div class="card-body">
+            <h5 class="card-title">{{this.team_name}}</h5>
+            <form action="/match/create/{{this.id}}" method="POST">
+                <button class="btn btn-orange" type="submit">Play Team</button>
+            </form>
+        </div>
+    </div>
+    {{/each}}
+</div>
