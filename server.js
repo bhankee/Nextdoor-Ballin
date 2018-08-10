@@ -1,4 +1,5 @@
 require('dotenv').config();
+var flash = require('connect-flash');
 let express = require('express');
 let exphbs = require('express-handlebars');
 const cookieSession = require('cookie-session');
@@ -26,16 +27,16 @@ app.use(
     keys: [keys.session.cookieKey]
   })
 );
-app.use(passportGoogle.initialize());
-app.use(passportGoogle.session());
+app.use(flash());
+
+// app.use(passportGoogle.initialize());
+// app.use(passportGoogle.session());
 app.use(passportLocal.initialize());
 app.use(passportLocal.session());
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // ROUTES
-//let routes = require('./controllers/teamController');
-//app.use(routes);
 require('./routes/viewRoutes')(app);
 require('./routes/apiRoutes')(app);
 require('./routes/authRoutes')(app);

@@ -61,15 +61,10 @@ module.exports = function(app) {
       console.log('================');
       next();
     },
-    passport.authenticate('local'),
-    function(req, res) {
-      console.log(
-        'INSIDE PASSPORT LOCAL POST _____------------------________-----------'
-      );
-      console.log('REQ: ', req.body);
-      // If this function gets called, authentication was successful.
-      // `req.user` contains the authenticated user.
-      res.redirect('/profile');
-    }
+    passport.authenticate('local', {
+      successRedirect: '/profile',
+      failureRedirect: '/login', // see text
+      failureFlash: true // optional, see text as well
+    })
   );
 };
