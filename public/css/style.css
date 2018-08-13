@@ -1,8 +1,10 @@
 /*-----------------------
    Main Layout
 -----------------------*/
-.footer {
-  margin-top: 200px;
+
+.footerRow {
+  height: 50px;
+  padding: 20px;
 }
 
 /*-----------------------
@@ -51,9 +53,11 @@
   background-color: #4ec48f;
   color: white;
 }
-.quote {
-  font-family: 'Merienda One', cursive;
+.myQuote {
+  font-family: 'Oswald', sans-serif;
   font-size: 26px;
+}
+.quoteWrapper {
   margin: 30px auto;
 }
 
@@ -62,6 +66,7 @@
   color: #50a3ff;
   padding: 80px;
   font-size: 7em;
+  border: 25px solid;
   border-radius: 50%;
   margin: 100px auto 50px auto;
 }
@@ -69,9 +74,10 @@
   margin-bottom: 100px;
   padding-top: 100px;
 }
-.calendar {
+.homeRow {
   background-color: #d3d3d3;
   padding: 50px;
+  padding-bottom: 200px;
 }
 .cal {
   font-size: 30em;
@@ -89,13 +95,14 @@
 }
 
 .pickSport {
-  font-size: 8em;
+  font-size: 5em;
   padding-left: 50px;
   margin-bottom: 30px;
+  color: #bfbfbf;
 }
 
 hr {
-  background-color: #4ec48f;
+  background-color: #f2f2f2;
   margin-top: 10px;
   margin-top: 3rem !important;
   margin-left: 70px;
