@@ -1,4 +1,11 @@
 /*-----------------------
+   Main Layout
+-----------------------*/
+.footer {
+  margin-top: 200px;
+}
+
+/*-----------------------
    Home Page Jumbotron
 -----------------------*/
 /* navbar */
@@ -16,9 +23,6 @@
 .img-wrapper {
   position: relative;
   width: 100%;
-}
-
-.floatRight {
 }
 
 .img-overlay {
@@ -51,6 +55,55 @@
   font-family: 'Merienda One', cursive;
   font-size: 26px;
   margin: 30px auto;
+}
+
+.iconStyle {
+  background-color: #ffe890;
+  color: #50a3ff;
+  padding: 80px;
+  font-size: 7em;
+  border-radius: 50%;
+  margin: 100px auto 50px auto;
+}
+.threeIcons {
+  margin-bottom: 100px;
+  padding-top: 100px;
+}
+.calendar {
+  background-color: #d3d3d3;
+  padding: 50px;
+}
+.cal {
+  font-size: 30em;
+  color: #fff79f;
+}
+.scheduleText {
+  padding-top: 200px;
+  padding-left: 35px !important;
+
+  color: white;
+}
+.borderLeft {
+  border-left: 3px solid white;
+  padding-left: 20px;
+}
+
+.pickSport {
+  font-size: 8em;
+  padding-left: 50px;
+  margin-bottom: 30px;
+}
+
+hr {
+  background-color: #4ec48f;
+  margin-top: 10px;
+  margin-top: 3rem !important;
+  margin-left: 70px;
+}
+
+.sportText {
+  margin-bottom: 60px;
+  color: #4ec48f;
 }
 
 /* ----------------------
